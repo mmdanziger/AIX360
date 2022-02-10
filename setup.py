@@ -25,7 +25,6 @@ setuptools.setup(
         "cvxopt",
         "Image",
         "tensorflow>=2.0,<3",
-        "h5py<3.0.0",
         "matplotlib",
         "numpy",
         "pandas",
