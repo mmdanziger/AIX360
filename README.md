@@ -1,3 +1,6 @@
+Removing torch and tensorflow dependencies:
+contrastive, shap, and profwt are expected not to work.
+
 # AI Explainability 360 (v0.2.1) 
 
 [![Build Status](https://travis-ci.com/Trusted-AI/AIX360.svg?branch=master)](https://travis-ci.com/Trusted-AI/AIX360)

@@ -19,12 +19,9 @@ setuptools.setup(
     install_requires=[
         "joblib>=0.11",
         "scikit-learn>=0.21.2",
-        "torch",
-        "torchvision",
         "cvxpy==1.1.18",
         "cvxopt",
         "Image",
-        "tensorflow>=2.0,<3",
         "matplotlib",
         "numpy",
         "pandas",
