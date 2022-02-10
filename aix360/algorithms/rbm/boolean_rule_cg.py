@@ -105,9 +105,9 @@ class BooleanRuleCG(BaseEstimator, ClassifierMixin):
         # Objective function (no penalty on empty conjunction)
         cs = self.lambda0 + self.lambda1 * z.sum().values
         cs[0] = 0
-        obj = cvx.Minimize(cvx.sum(xi) / n + cvx.sum(A[Z,:] * w) / n + cs * w)
+        obj = cvx.Minimize(cvx.sum(xi) / n + cvx.sum(A[Z,:] @ w) / n + cs @ w)
         # Constraints
-        constraints = [xi + A[P,:] * w >= 1]
+        constraints = [xi + A[P,:] @ w >= 1]
 
         # Solve problem
         prob = cvx.Problem(obj, constraints)
@@ -141,9 +141,9 @@ class BooleanRuleCG(BaseEstimator, ClassifierMixin):
             w = cvx.Variable(A.shape[1], nonneg=True)
             # Objective function
             cs = np.concatenate((cs, self.lambda0 + self.lambda1 * zNew.sum().values))
-            obj = cvx.Minimize(cvx.sum(xi) / n + cvx.sum(A[Z,:] * w) / n + cs * w)
+            obj = cvx.Minimize(cvx.sum(xi) / n + cvx.sum(A[Z,:] @ w) / n + cs @ w)
             # Constraints
-            constraints = [xi + A[P,:] * w >= 1]
+            constraints = [xi + A[P,:] @ w >= 1]
 
             # Solve problem
             prob = cvx.Problem(obj, constraints)
